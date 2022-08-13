@@ -2,7 +2,6 @@
 #include <soc/rtc_cntl_reg.h>
 #include <IotWebConf.h>
 #include <IotWebConfTParameter.h>
-#include <OV2640.h>
 #include <ESPmDNS.h>
 #include <rtsp_server.h>
 #include <frame_size.h>

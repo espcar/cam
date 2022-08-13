@@ -3,7 +3,7 @@
 #include <list>
 #include <WiFiServer.h>
 #include <ESPmDNS.h>
-#include <OV2640.h>
+#include <esp_camera.h>
 #include <CRtspSession.h>
 #include <arduino-timer.h>
 
