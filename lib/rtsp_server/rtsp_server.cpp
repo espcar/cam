@@ -1,9 +1,9 @@
 #include "rtsp_server.h"
 #include <esp32-hal-log.h>
-#include <OV2640Streamer.h>
+#include <camera_streamer.h>
 
 // URI: e.g. rtsp://192.168.178.27:554/mjpeg/1
-rtsp_server::rtsp_server(OV2640 &cam, unsigned long interval, int port /*= 554*/)
+rtsp_server::rtsp_server(camera &cam, unsigned long interval, int port /*= 554*/)
 	: WiFiServer(port), cam_(cam)
 {
 	log_i("Starting RTSP server");
@@ -16,10 +16,10 @@ void rtsp_server::doLoop()
 	timer_.tick();
 }
 
-rtsp_server::rtsp_client::rtsp_client(const WiFiClient &client, OV2640 &cam)
+rtsp_server::rtsp_client::rtsp_client(const WiFiClient &client, camera &cam)
 {
 	wifi_client = client;
-	streamer = std::shared_ptr<OV2640Streamer>(new OV2640Streamer(&wifi_client, cam));
+	streamer = std::shared_ptr<camera_streamer>(new camera_streamer(&wifi_client, cam));
 	session = std::shared_ptr<CRtspSession>(new CRtspSession(&wifi_client, streamer.get()));
 }
 

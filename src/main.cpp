@@ -22,7 +22,7 @@ auto config_frame_size = iotwebconf::SelectParameter("Frame size", "fs", frame_s
 auto config_jpg_quality = iotwebconf::NumberParameter("JPEG quality", "q", jpeg_quality_val, sizeof(jpeg_quality_val), DEFAULT_JPEG_QUALITY, nullptr, "min=\"1\" max=\"100\"");
 
 // Camera
-OV2640 cam;
+camera cam;
 // DNS Server
 DNSServer dnsServer;
 // RTSP Server
